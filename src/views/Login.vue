@@ -4,13 +4,13 @@
     <div class="login">
       <el-form :model="ruleForm" :rules="rules">
         <el-form-item prop="username">
-          <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+          <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter="submitForm"></el-input>
+          <el-input type="password" placeholder="密码" v-model="ruleForm.password" @keyup.enter="submitForm"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button class="login-btn" type="primary" @click="submitForm">登录</el-button>
+          <el-button class="login-btn" type="warning" @click="submitForm">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -30,8 +30,8 @@ export default defineComponent({
 
     const nusicName = ref(MUSICNAME);
     const ruleForm = reactive({
-      username: "admin",
-      password: "123",
+      username: "",
+      password: "",
     });
     const rules = reactive({
       username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
@@ -61,7 +61,7 @@ export default defineComponent({
 <style scoped>
 .login-container {
   position: relative;
-  background: url("../assets/images/background.jpg");
+  background: url("../assets/images/1.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

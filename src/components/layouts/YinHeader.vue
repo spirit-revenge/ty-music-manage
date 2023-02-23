@@ -7,16 +7,20 @@
     <div class="logo">{{ nusicName }}</div>
     <div class="header-right">
       <div class="header-user-con">
-        <div class="user-avator">
-          <img :src="attachImageUrl(userPic)" />
-        </div>
         <el-dropdown class="user-name" trigger="click" @command="handleCommand">
-          <span class="el-dropdown-link">
-            {{ username }}
-            <i class="el-icon-caret-bottom"></i>
-          </span>
+          <div class="user-avator">
+            <el-avatar v-if="userPic" :src="attachImageUrl(userPic)"></el-avatar>
+            <el-avatar v-if="!userPic" style="background: darkred">{{username.substring(0,1).toUpperCase()}}</el-avatar>
+<!--            <img :src="attachImageUrl(userPic)" />-->
+          </div>
+<!--          <span class="el-dropdown-link">-->
+<!--            {{ username }}-->
+<!--            <i class="el-icon-caret-bottom"></i>-->
+<!--          </span>-->
           <template #dropdown>
             <el-dropdown-menu>
+<!--              <span class="el-dropdown-link">{{username}}</span>-->
+              <el-dropdown-item>{{username}}</el-dropdown-item>
               <el-dropdown-item command="loginout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
